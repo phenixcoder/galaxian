@@ -1,0 +1,25 @@
+{
+  "name": "galaxian",
+  "version": "1.0.0",
+  "description": "Galaxian In Node JS Terminal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pheonixcoder/galaxian.git"
+  },
+  "keywords": [
+    "nodejs",
+    "galaxian",
+    "terminal",
+    "game"
+  ],
+  "author": "Balwant Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pheonixcoder/galaxian/issues"
+  },
+  "homepage": "https://github.com/pheonixcoder/galaxian#readme"
+}
