@@ -1,4 +1,4 @@
-# GALAXIAN
+# GALAXIAN / Space Invaders
 
 Galaxian on nodejs.
 
