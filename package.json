@@ -24,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/pheonixcoder/galaxian/issues"
   },
-  "homepage": "https://github.com/pheonixcoder/galaxian#readme"
+  "homepage": "https://github.com/pheonixcoder/galaxian#readme",
+  "dependencies": {
+    "ansi-escapes": "^3.1.0",
+    "chalk": "^2.4.1",
+    "terminal-kit": "^1.26.8"
+  }
 }
