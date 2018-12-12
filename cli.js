@@ -14,6 +14,9 @@ const monsters = new Monsters(screen);
 const bullets = new Bullets(screen, monsters);
 monsters.generate();
 
+let showLog = false;
+let showMonsterStats = false;
+
 term.on("key", function(name, matches, data) {
   if (name === "CTRL_C") {
     term.grabInput(false);
@@ -33,17 +36,20 @@ term.on("key", function(name, matches, data) {
       case " ":
         bullets.fire(ship);
         break;
+      case "s":
+      case "S":
+        showMonsterStats = !showMonsterStats;
+        break;
+
+      case "l":
+      case "L":
+        showLog = !showLog;
+        break;
       default:
         break;
     }
   }
-  screen.put(
-    {
-      x: 1,
-      y: 1
-    },
-    `${name} ${ship.location.x}        `
-  );
+  Assets.LOG = `[${name}] pressed.                                              `;
 });
 
 term.grabInput(true);
@@ -66,13 +72,21 @@ screen.fill({
 
 // 10 FPS refresh rate
 setInterval(() => {
-  // monsters.renderStats();
+  monsters.renderStats(showMonsterStats);
+  if (showMonsterStats) {
+  }
+
+  if (showLog) {
+    let log = Assets.LOG;
+    screen.put({ x: 0, y: term.height - 1 }, Assets.LOG);
+  } else {
+    screen.put(
+      { x: 0, y: term.height - 1 },
+      `Kill ${monsters.Monsters.length} Monsters`
+    );
+  }
+
   screen.put({ x: 0, y: 0 }, `Score ${bullets.score}`);
   screen.put({ x: term.width - 10, y: 0 }, `Level ${bullets.level}`);
-  screen.put(
-    { x: 0, y: term.height - 1 },
-    `Kill ${monsters.Monsters.length} Monsters`
-  );
-  // screen.put({ x: 0, y: term.height - 1 }, Assets.LOG);
   screen.draw();
 }, Assets.FPS);
