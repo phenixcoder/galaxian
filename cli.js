@@ -88,5 +88,6 @@ setInterval(() => {
 
   screen.put({ x: 0, y: 0 }, `Score ${bullets.score}`);
   screen.put({ x: term.width - 10, y: 0 }, `Level ${bullets.level}`);
+  ship.renderAsset();
   screen.draw();
 }, Assets.FPS);
